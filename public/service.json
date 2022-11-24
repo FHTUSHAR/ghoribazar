@@ -1,0 +1,113 @@
+[
+    {
+        "id": "01",
+        "category-title": "Rolex",
+        "image": "https://ibb.co/ykyfcmm",
+        "category-items": [
+            {
+                "id": "01",
+                "title": "Rolex gold",
+                "loation": "Dinajpur",
+                "resale_price": "120",
+                "original_price": "300",
+                "img_url": "https://ibb.co/ykyfcmm",
+                "use_time": "01 years",
+                "posted_time": " 01 Nov 2022"
+            },
+            {
+                "id": "02",
+                "title": "Rolex silver",
+                "loation": "Rangpur",
+                "resale_price": "110",
+                "original_price": "320",
+                "img_url": "https://ibb.co/qxKhKcZ",
+                "use_time": "02 years",
+                "posted_time": " 01 Oct 2022"
+            },
+            {
+                "id": "03",
+                "title": "Rolex premium",
+                "loation": "Nilphamary",
+                "resale_price": "100",
+                "original_price": "330",
+                "img_url": "https://ibb.co/dPvLXyJ",
+                "use_time": "01 years",
+                "posted_time": " 01 Sept 2022"
+            }
+        ]
+    },
+    {
+        "id": "02",
+        "category-title": "Navi Force",
+        "image": "https://ibb.co/F3BjT6K",
+        "category-items": [
+            {
+                "id": "01",
+                "title": "Navi Force gold",
+                "loation": "Dinajpur",
+                "resale_price": "120",
+                "original_price": "300",
+                "img_url": "https://ibb.co/F3BjT6K",
+                "use_time": "01 years",
+                "posted_time": " 01 Nov 2022"
+            },
+            {
+                "id": "02",
+                "title": "Navi Force silver",
+                "loation": "Rangpur",
+                "resale_price": "110",
+                "original_price": "320",
+                "img_url": "https://ibb.co/3khdC9h",
+                "use_time": "02 years",
+                "posted_time": " 01 Oct 2022"
+            },
+            {
+                "id": "03",
+                "title": "Navi Force premium",
+                "loation": "Nilphamary",
+                "resale_price": "100",
+                "original_price": "330",
+                "img_url": "https://ibb.co/q9XgL98",
+                "use_time": "01 years",
+                "posted_time": " 01 Sept 2022"
+            }
+        ]
+    },
+    {
+        "id": "03",
+        "category-title": "GShock",
+        "image": "https://ibb.co/HF9ZGVC",
+        "category-items": [
+            {
+                "id": "01",
+                "title": "GShock gold",
+                "loation": "Dinajpur",
+                "resale_price": "120",
+                "original_price": "300",
+                "img_url": "https://ibb.co/HF9ZGVC",
+                "use_time": "01 years",
+                "posted_time": " 01 Nov 2022"
+            },
+            {
+                "id": "02",
+                "title": "GShock silver",
+                "loation": "Rangpur",
+                "resale_price": "110",
+                "original_price": "320",
+                "img_url": "https://ibb.co/NmjCCw3",
+                "use_time": "02 years",
+                "posted_time": " 01 Oct 2022"
+            },
+            {
+                "id": "03",
+                "title": "GShock premium",
+                "loation": "Nilphamary",
+                "resale_price": "100",
+                "original_price": "330",
+                "img_url": "https://ibb.co/8ckPZJs",
+                "use_time": "01 years",
+                "posted_time": " 01 Sept 2022"
+            }
+        ]
+    }
+]
