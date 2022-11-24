@@ -1,18 +1,18 @@
 [
     {
-        "id": "01",
-        "category-title": "Rolex",
-        "image": "https://ibb.co/ykyfcmm",
-        "category-items": [
+        "category_title": "Rolex",
+        "image": "https://i.ibb.co/myqDVrr/r1.webp",
+        "category_items": [
             {
                 "id": "01",
                 "title": "Rolex gold",
                 "loation": "Dinajpur",
                 "resale_price": "120",
                 "original_price": "300",
-                "img_url": "https://ibb.co/ykyfcmm",
+                "img_url": "https://i.ibb.co/myqDVrr/r1.webp",
                 "use_time": "01 years",
-                "posted_time": " 01 Nov 2022"
+                "posted_time": " 01 Nov 2022",
+                "seller_name": "john"
             },
             {
                 "id": "02",
@@ -20,9 +20,10 @@
                 "loation": "Rangpur",
                 "resale_price": "110",
                 "original_price": "320",
-                "img_url": "https://ibb.co/qxKhKcZ",
+                "img_url": "https://i.ibb.co/8XqGqfh/r2.webp",
                 "use_time": "02 years",
-                "posted_time": " 01 Oct 2022"
+                "posted_time": " 01 Oct 2022",
+                "seller_name": "Bush"
             },
             {
                 "id": "03",
@@ -30,26 +31,27 @@
                 "loation": "Nilphamary",
                 "resale_price": "100",
                 "original_price": "330",
-                "img_url": "https://ibb.co/dPvLXyJ",
+                "img_url": "https://i.ibb.co/JvTy8PF/r3.webp",
                 "use_time": "01 years",
-                "posted_time": " 01 Sept 2022"
+                "posted_time": " 01 Sept 2022",
+                "seller_name": "Trump"
             }
         ]
     },
     {
-        "id": "02",
-        "category-title": "Navi Force",
-        "image": "https://ibb.co/F3BjT6K",
-        "category-items": [
+        "category_title": "Navi Force",
+        "image": "https://i.ibb.co/JtzMJnK/cn.png",
+        "category_items": [
             {
                 "id": "01",
                 "title": "Navi Force gold",
                 "loation": "Dinajpur",
                 "resale_price": "120",
                 "original_price": "300",
-                "img_url": "https://ibb.co/F3BjT6K",
+                "img_url": "https://i.ibb.co/JtzMJnK/cn.png",
                 "use_time": "01 years",
-                "posted_time": " 01 Nov 2022"
+                "posted_time": " 01 Nov 2022",
+                "seller_name": "Helari"
             },
             {
                 "id": "02",
@@ -57,9 +59,10 @@
                 "loation": "Rangpur",
                 "resale_price": "110",
                 "original_price": "320",
-                "img_url": "https://ibb.co/3khdC9h",
+                "img_url": "https://i.ibb.co/Fn73DL7/n2.png",
                 "use_time": "02 years",
-                "posted_time": " 01 Oct 2022"
+                "posted_time": " 01 Oct 2022",
+                "seller_name": "Abraham"
             },
             {
                 "id": "03",
@@ -67,26 +70,27 @@
                 "loation": "Nilphamary",
                 "resale_price": "100",
                 "original_price": "330",
-                "img_url": "https://ibb.co/q9XgL98",
+                "img_url": "https://i.ibb.co/6bVtcbS/n3.png",
                 "use_time": "01 years",
-                "posted_time": " 01 Sept 2022"
+                "posted_time": " 01 Sept 2022",
+                "seller_name": "Hasina"
             }
         ]
     },
     {
-        "id": "03",
-        "category-title": "GShock",
-        "image": "https://ibb.co/HF9ZGVC",
-        "category-items": [
+        "category_title": "GShock",
+        "image": "https://i.ibb.co/SsZSVPc/g1.webp",
+        "category_items": [
             {
                 "id": "01",
                 "title": "GShock gold",
                 "loation": "Dinajpur",
                 "resale_price": "120",
                 "original_price": "300",
-                "img_url": "https://ibb.co/HF9ZGVC",
+                "img_url": "https://i.ibb.co/SsZSVPc/g1.webp",
                 "use_time": "01 years",
-                "posted_time": " 01 Nov 2022"
+                "posted_time": " 01 Nov 2022",
+                "seller_name": "Khaleda"
             },
             {
                 "id": "02",
@@ -94,9 +98,10 @@
                 "loation": "Rangpur",
                 "resale_price": "110",
                 "original_price": "320",
-                "img_url": "https://ibb.co/NmjCCw3",
+                "img_url": "https://i.ibb.co/z7RxxK5/g2.webp",
                 "use_time": "02 years",
-                "posted_time": " 01 Oct 2022"
+                "posted_time": " 01 Oct 2022",
+                "seller_name": "Israk"
             },
             {
                 "id": "03",
@@ -104,9 +109,10 @@
                 "loation": "Nilphamary",
                 "resale_price": "100",
                 "original_price": "330",
-                "img_url": "https://ibb.co/8ckPZJs",
+                "img_url": "https://i.ibb.co/gVYtKG9/g3.webp",
                 "use_time": "01 years",
-                "posted_time": " 01 Sept 2022"
+                "posted_time": " 01 Sept 2022",
+                "seller_name": "Mihir"
             }
         ]
     }
