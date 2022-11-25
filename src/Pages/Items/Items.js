@@ -6,6 +6,23 @@ import { AuthContext } from '../../Context/AuthProvider';
 const Items = () => {
     const items = useLoaderData();
     const { user } = useContext(AuthContext)
+    const handleBooking = (event) => {
+        event.preventDefault();
+        const phone = event.target.phone.value;
+        const location = event.target.location.value;
+        const title = event.target.title.value;
+        const price = event.target.price.value;
+        const bookedProduct = {
+            name: user?.displayName,
+            email: user?.email,
+            title,
+            price,
+            phone,
+            location
+        }
+        console.log(bookedProduct)
+
+    }
     return (
         <div className='p-6 divide-y divide-red-600'>
             <h1 className='text-3xl font-semibold text-white ml-6 mb-5'>Items</h1>
@@ -39,10 +56,9 @@ const Items = () => {
                             <div className="modal ">
                                 <div className="modal-box relative bg-black">
                                     <label htmlFor="item-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                    <h3 className="text-lg font-semibol mb-4">{item.title}</h3>
-                                    <p className="text-lg font-semibol mb-3"> Price : ${item.resale_price}</p>
-
-                                    <form >
+                                    <form onSubmit={handleBooking}>
+                                        <input type="text" name='title' defaultValue={item.title} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
+                                        <input type="text" name='price' defaultValue={item.resale_price} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
                                         <input type="text" name='pname' defaultValue={user?.displayName} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
                                         <input type="text" name='email' defaultValue={user?.email} readOnly placeholder="Email" className="input input-bordered w-full text-black font-semibold  mb-3" />
                                         <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full text-black font-semibold  mb-3" />

@@ -15,38 +15,38 @@ const Login = () => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
-        const optionValue = form.options.value;
-        const password = form.password.value;
-        console.log(optionValue)
-        // loginUser(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         const currentUser = {
-        //             email: user.email
-        //         }
-        //         fetch('https://doctors-services-server.vercel.app/jwt', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'content-type': 'application/json'
-        //             },
-        //             body: JSON.stringify(currentUser)
-        //         })
-        //             .then(res => res.json())
-        //             .then(data => {
-        //                 console.log(data)
-        //                 localStorage.setItem('doctorToken', data.token)
-        //                 // navigate(from, { replace: true });
-        //             })
-        // //             .catch(error => console.error(error))
-        //         form.reset()
 
-        //         setError('')
-        //         navigate(from, { replace: true });
-        //     })
-        //     .catch(error => {
-        //         setError(error.message)
-        //         console.error(error)
-        //     })
+        const password = form.password.value;
+
+        loginUser(email, password)
+            .then(result => {
+                const user = result.user;
+                //         const currentUser = {
+                //             email: user.email
+                //         }
+                //         fetch('https://doctors-services-server.vercel.app/jwt', {
+                //             method: 'POST',
+                //             headers: {
+                //                 'content-type': 'application/json'
+                //             },
+                //             body: JSON.stringify(currentUser)
+                //         })
+                //             .then(res => res.json())
+                //             .then(data => {
+                //                 console.log(data)
+                //                 localStorage.setItem('doctorToken', data.token)
+                //                 // navigate(from, { replace: true });
+                //             })
+                // //             .catch(error => console.error(error))
+                form.reset()
+
+                setError('')
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                setError(error.message)
+                console.error(error)
+            })
     }
     const googleBtn = () => {
         googleSignIn()
@@ -55,20 +55,20 @@ const Login = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('https://doctors-services-server.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        localStorage.setItem('doctorToken', data.token)
-                        // navigate(from, { replace: true });
-                    })
-                    .catch(error => console.error(error))
+                // fetch('https://doctors-services-server.vercel.app/jwt', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(currentUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data)
+                //         localStorage.setItem('doctorToken', data.token)
+                //         // navigate(from, { replace: true });
+                //     })
+                //     .catch(error => console.error(error))
                 navigate(from, { replace: true });
                 setError('')
             })

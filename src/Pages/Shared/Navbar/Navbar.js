@@ -83,6 +83,7 @@ const Navbar = () => {
                         user?.uid ?
                             <>
 
+                                <li><button onClick={logOutBtn} className='text-white'>Dashboard</button></li>
                                 <li><button onClick={logOutBtn} className='text-white'>Log Out</button></li>
 
                             </>
