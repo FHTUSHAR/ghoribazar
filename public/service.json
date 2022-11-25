@@ -1,119 +1,161 @@
 [
     {
         "category_title": "Rolex",
-        "image": "https://i.ibb.co/myqDVrr/r1.webp",
-        "category_items": [
-            {
-                "id": "01",
-                "title": "Rolex gold",
-                "loation": "Dinajpur",
-                "resale_price": "120",
-                "original_price": "300",
-                "img_url": "https://i.ibb.co/myqDVrr/r1.webp",
-                "use_time": "01 years",
-                "posted_time": " 01 Nov 2022",
-                "seller_name": "john"
-            },
-            {
-                "id": "02",
-                "title": "Rolex silver",
-                "loation": "Rangpur",
-                "resale_price": "110",
-                "original_price": "320",
-                "img_url": "https://i.ibb.co/8XqGqfh/r2.webp",
-                "use_time": "02 years",
-                "posted_time": " 01 Oct 2022",
-                "seller_name": "Bush"
-            },
-            {
-                "id": "03",
-                "title": "Rolex premium",
-                "loation": "Nilphamary",
-                "resale_price": "100",
-                "original_price": "330",
-                "img_url": "https://i.ibb.co/JvTy8PF/r3.webp",
-                "use_time": "01 years",
-                "posted_time": " 01 Sept 2022",
-                "seller_name": "Trump"
-            }
-        ]
+        "category_id": "01",
+        "image": "https://i.ibb.co/myqDVrr/r1.webp"
     },
     {
-        "category_title": "Navi Force",
-        "image": "https://i.ibb.co/JtzMJnK/cn.png",
-        "category_items": [
-            {
-                "id": "01",
-                "title": "Navi Force gold",
-                "loation": "Dinajpur",
-                "resale_price": "120",
-                "original_price": "300",
-                "img_url": "https://i.ibb.co/JtzMJnK/cn.png",
-                "use_time": "01 years",
-                "posted_time": " 01 Nov 2022",
-                "seller_name": "Helari"
-            },
-            {
-                "id": "02",
-                "title": "Navi Force silver",
-                "loation": "Rangpur",
-                "resale_price": "110",
-                "original_price": "320",
-                "img_url": "https://i.ibb.co/Fn73DL7/n2.png",
-                "use_time": "02 years",
-                "posted_time": " 01 Oct 2022",
-                "seller_name": "Abraham"
-            },
-            {
-                "id": "03",
-                "title": "Navi Force premium",
-                "loation": "Nilphamary",
-                "resale_price": "100",
-                "original_price": "330",
-                "img_url": "https://i.ibb.co/6bVtcbS/n3.png",
-                "use_time": "01 years",
-                "posted_time": " 01 Sept 2022",
-                "seller_name": "Hasina"
-            }
-        ]
+        "category_title": "NaviForce",
+        "category_id": "02",
+        "image": "https://i.ibb.co/JtzMJnK/cn.png"
     },
     {
         "category_title": "GShock",
-        "image": "https://i.ibb.co/SsZSVPc/g1.webp",
-        "category_items": [
-            {
-                "id": "01",
-                "title": "GShock gold",
-                "loation": "Dinajpur",
-                "resale_price": "120",
-                "original_price": "300",
-                "img_url": "https://i.ibb.co/SsZSVPc/g1.webp",
-                "use_time": "01 years",
-                "posted_time": " 01 Nov 2022",
-                "seller_name": "Khaleda"
-            },
-            {
-                "id": "02",
-                "title": "GShock silver",
-                "loation": "Rangpur",
-                "resale_price": "110",
-                "original_price": "320",
-                "img_url": "https://i.ibb.co/z7RxxK5/g2.webp",
-                "use_time": "02 years",
-                "posted_time": " 01 Oct 2022",
-                "seller_name": "Israk"
-            },
-            {
-                "id": "03",
-                "title": "GShock premium",
-                "loation": "Nilphamary",
-                "resale_price": "100",
-                "original_price": "330",
-                "img_url": "https://i.ibb.co/gVYtKG9/g3.webp",
-                "use_time": "01 years",
-                "posted_time": " 01 Sept 2022",
-                "seller_name": "Mihir"
-            }
-        ]
+        "category_id": "03",
+        "image": "https://i.ibb.co/SsZSVPc/g1.webp"
+    },
+    {
+        "categoryname": "Rolex",
+        "category_id": "01",
+        "title": "Rolex gold",
+        "location": "Dinajpur",
+        "resale_price": "120",
+        "original_price": "300",
+        "img_url": "https://i.ibb.co/myqDVrr/r1.webp",
+        "use_time": "01 years",
+        "posted_time": " 01 Nov 2022",
+        "seller_name": "john",
+        "seller_phone": "01722334455",
+        "seller_email": "john@gmail.com",
+        "verified": "true",
+        "condition": "Good"
+    },
+    {
+        "categoryname": "Rolex",
+        "category_id": "01",
+        "title": "Rolex silver",
+        "location": "Rangpur",
+        "resale_price": "110",
+        "original_price": "320",
+        "img_url": "https://i.ibb.co/8XqGqfh/r2.webp",
+        "use_time": "02 years",
+        "posted_time": " 01 Oct 2022",
+        "seller_name": "Bush",
+        "seller_phone": "01722334433",
+        "seller_email": "bush@gmail.com",
+        "verified": "true",
+        "condition": "Excellent"
+    },
+    {
+        "categoryname": "Rolex",
+        "category_id": "01",
+        "title": "Rolex premium",
+        "location": "Nilphamary",
+        "resale_price": "100",
+        "original_price": "330",
+        "img_url": "https://i.ibb.co/JvTy8PF/r3.webp",
+        "use_time": "01 years",
+        "posted_time": " 01 Sept 2022",
+        "seller_name": "Trump",
+        "seller_phone": "01722444455",
+        "seller_email": "trump@gmail.com",
+        "verified": "true",
+        "condition": "Excellent"
+    },
+    {
+        "categoryname": "GShock",
+        "category_id": "02",
+        "title": "GShock gold",
+        "location": "Dinajpur",
+        "resale_price": "120",
+        "original_price": "300",
+        "img_url": "https://i.ibb.co/SsZSVPc/g1.webp",
+        "use_time": "01 years",
+        "posted_time": " 01 Nov 2022",
+        "seller_name": "Khaleda",
+        "seller_phone": "01722334455",
+        "seller_email": "khaleda@gmail.com",
+        "verified": "true",
+        "condition": "Good"
+    },
+    {
+        "categoryname": "GShock",
+        "category_id": "02",
+        "title": "GShock silver",
+        "location": "Rangpur",
+        "resale_price": "110",
+        "original_price": "320",
+        "img_url": "https://i.ibb.co/z7RxxK5/g2.webp",
+        "use_time": "02 years",
+        "posted_time": " 01 Oct 2022",
+        "seller_name": "Israk",
+        "seller_phone": "01722334410",
+        "seller_email": "israk@gmail.com",
+        "verified": "true",
+        "condition": "Excellent"
+    },
+    {
+        "categoryname": "GShock",
+        "category_id": "02",
+        "title": "GShock premium",
+        "location": "Nilphamary",
+        "resale_price": "100",
+        "original_price": "330",
+        "img_url": "https://i.ibb.co/gVYtKG9/g3.webp",
+        "use_time": "01 years",
+        "posted_time": " 01 Sept 2022",
+        "seller_name": "Mihir",
+        "seller_phone": "01722331155",
+        "seller_email": "mihir@gmail.com",
+        "verified": "true",
+        "condition": "Good"
+    },
+    {
+        "categoryname": "NaviForce",
+        "category_id": "03",
+        "title": "Navi Force gold",
+        "location": "Dinajpur",
+        "resale_price": "120",
+        "original_price": "300",
+        "img_url": "https://i.ibb.co/JtzMJnK/cn.png",
+        "use_time": "01 years",
+        "posted_time": " 01 Nov 2022",
+        "seller_name": "Helari",
+        "seller_phone": "01722331155",
+        "seller_email": "hilari@gmail.com",
+        "verified": "true",
+        "condition": "Good"
+    },
+    {
+        "categoryname": "NaviForce",
+        "category_id": "03",
+        "title": "Navi Force silver",
+        "location": "Rangpur",
+        "resale_price": "110",
+        "original_price": "320",
+        "img_url": "https://i.ibb.co/Fn73DL7/n2.png",
+        "use_time": "02 years",
+        "posted_time": " 01 Oct 2022",
+        "seller_name": "Abraham",
+        "seller_phone": "01722331155",
+        "seller_email": "abraham@gmail.com",
+        "verified": "true",
+        "condition": "Excellent"
+    },
+    {
+        "categoryname": "NaviForce",
+        "category_id": "03",
+        "title": "Navi Force premium",
+        "location": "Nilphamary",
+        "resale_price": "100",
+        "original_price": "330",
+        "img_url": "https://i.ibb.co/6bVtcbS/n3.png",
+        "use_time": "01 years",
+        "posted_time": " 01 Sept 2022",
+        "seller_name": "Hasina",
+        "seller_phone": "01722331111",
+        "seller_email": "hasina@gmail.com",
+        "verified": "true",
+        "condition": "Excellent"
     }
 ]

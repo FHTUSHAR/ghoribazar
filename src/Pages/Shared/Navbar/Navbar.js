@@ -1,7 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 import img from '../../../images/favicon.jpg'
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
+    let location = useLocation()
+    let from = location.state?.from?.pathname || "/";
+    const logOutBtn = () => {
+        logOut()
+            .then()
+            .catch(err => {
+                console.error(err)
+            })
+    }
     return (
         <div className="navbar bg-black text-white  px-12">
             <div className="navbar-start ">
@@ -48,6 +60,7 @@ const Navbar = () => {
                     <li>
                         <Link to={'/blog'}>Blog</Link>
                     </li>
+
                     {/* {
                         user?.uid ?
                             <>
@@ -66,7 +79,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <ul className="menu menu-horizontal p-0 font-semibold">
-                    {/* {
+                    {
                         user?.uid ?
                             <>
 
@@ -77,7 +90,7 @@ const Navbar = () => {
                             <>
                                 <li><Link className='text-white' to={'/login'}>Login</Link></li>
                             </>
-                    } */}
+                    }
 
                 </ul>
             </div>

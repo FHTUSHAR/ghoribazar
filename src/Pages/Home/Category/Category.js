@@ -9,15 +9,14 @@ const Category = () => {
             return data;
         }
     })
-    console.log(products)
     return (
         <div className='mt-5 lg:ml-8 divide-y divide-red-600'>
-            <h1 className='text-3xl font-semibold text-white mb-5'>Category</h1>
+            <h1 className='text-3xl font-semibold text-blue-500 mb-5'>Category</h1>
 
             <div className='grid lg:grid-cols-3 gap-12 mt-9  p-6'>
 
                 {
-                    products.map(product => <Link to={`/items/${product._id}`} key={product._id}>
+                    products.map(product => <Link to={`/items/${product.category_id}`} key={product._id}>
                         <div className="card  border-white  bg-black text-white shadow-red-700 shadow-xl">
                             <figure><img className='w-88' src={product.image} alt="Watch" /></figure>
                             <div className="card-body">
