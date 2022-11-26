@@ -23,25 +23,8 @@ const Register = () => {
             .then(result => {
 
                 handleUpdateUserProfile(name)
-                const customer = {
-                    name,
-                    email,
-                    phone,
-                    type: opt
-                }
 
-                fetch('http://localhost:5000/users', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(customer)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        alert('Successfully Inserted')
-                    })
+                saveUserToDatabase(name, email, opt, phone)
 
 
                 navigate('/')
@@ -57,23 +40,11 @@ const Register = () => {
         googleSignIn()
             .then(result => {
                 const user = result.user;
-                const currentUser = {
-                    email: user.email
-                }
-                fetch('https://doctors-services-server.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        localStorage.setItem('doctorToken', data.token)
-                        // navigate(from, { replace: true });
-                    })
-                    .catch(error => console.error(error))
+                const email = user.email
+                const name = user.displayName
+                const type = "Buyer"
+                console.log(email, name, type)
+                saveUserToDatabase(name, email, type)
                 setError('')
                 navigate('/')
             })
@@ -89,6 +60,28 @@ const Register = () => {
         userProfile(profile)
             .then(() => { })
             .catch((e) => { setError(error.message) })
+    }
+
+    const saveUserToDatabase = (name, email, opt, phone = '017xxxxxxxx') => {
+        const customer = {
+            name,
+            email,
+            phone,
+            type: opt
+        }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(customer)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                alert('Successfully Inserted')
+            })
     }
     if (!error) {
         if (loading) {
