@@ -26,8 +26,8 @@ const DashBoard = () => {
 
                         {
                             isAdmin === true ? <>
-                                <li ><Link to={'/dashboard/seller'} className='text-white'>All User</Link></li>
-                                <li ><Link to={'/dashboard/addproduct'} className='text-white'>All Buyer</Link></li>
+                                <li ><Link to={'/dashboard/allbuyer'} className='text-white'>All Buyer</Link></li>
+                                <li ><Link to={'/dashboard/allseller'} className='text-white'>All Seller</Link></li>
                             </>
                                 :
                                 isBuyer === true ? <>
