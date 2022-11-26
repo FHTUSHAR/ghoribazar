@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Context/AuthProvider';
+import useUser from '../Hooks/useUser';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashBoard = () => {
+    const { user } = useContext(AuthContext)
+    const [isBuyer] = useUser(user?.email)
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -12,11 +18,22 @@ const DashBoard = () => {
                     <Outlet></Outlet>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side border-red-600">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                        {/* <!-- Sidebar content here --> */}
-                        <li><Link to={'/dashboard'}>My Product</Link></li>
+                    <ul className="menu p-4 w-80  border-2 border-red-600 text-white text-base-content">
+
+                        {isBuyer &&
+                            <li ><Link to={'/dashboard'} className='text-white'>My Product</Link></li>
+                        }
+                        {
+                            !isBuyer && <>
+                                <li ><Link to={'/dashboard/seller'} className='text-white'>My Product</Link></li>
+                                <li ><Link to={'/dashboard/addproduct'} className='text-white'>Add Product</Link></li>
+                            </>
+                        }
+
+
+
                         {/* {
                         isAdmin && <>
                             <li><Link to={'/dashboard/allusers'}>All Users</Link></li>

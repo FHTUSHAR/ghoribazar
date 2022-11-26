@@ -6,6 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider';
 const PrivateRoute = ({ children }) => {
     let location = useLocation()
     const { user, loading } = useContext(AuthContext)
+    console.log(user)
     if (loading) {
         return <TailSpin
             height="80"
@@ -18,10 +19,11 @@ const PrivateRoute = ({ children }) => {
             visible={true}
         />
     }
-    if (!user) {
-        return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+    if (user) {
+        return children;
     }
-    return children;
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+
 };
 
 export default PrivateRoute;

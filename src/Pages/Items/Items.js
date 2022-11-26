@@ -1,28 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { BsCheck2, FaCheck } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
+import ItemModal from './ItemModal/ItemModal';
 
 const Items = () => {
     const items = useLoaderData();
+    const [bookedProduct, setBookedProduct] = useState(null)
     const { user } = useContext(AuthContext)
-    const handleBooking = (event) => {
-        event.preventDefault();
-        const phone = event.target.phone.value;
-        const location = event.target.location.value;
-        const title = event.target.title.value;
-        const price = event.target.price.value;
-        const bookedProduct = {
-            name: user?.displayName,
-            email: user?.email,
-            title,
-            price,
-            phone,
-            location
-        }
-        console.log(bookedProduct)
 
-    }
     return (
         <div className='p-6 divide-y divide-red-600'>
             <h1 className='text-3xl font-semibold text-white ml-6 mb-5'>Items</h1>
@@ -48,28 +34,16 @@ const Items = () => {
 
                             </div>
 
-                            <label htmlFor="item-modal" className="btn btn-success text-white mx-auto px-12">BOOK Now</label>
+                            <label htmlFor="item-modal" onClick={() => { setBookedProduct(item) }} className="btn btn-success text-white mx-auto px-12">BOOK Now</label>
 
                         </div>
-                        <>
-                            <input type="checkbox" id="item-modal" className="modal-toggle" />
-                            <div className="modal ">
-                                <div className="modal-box relative bg-black">
-                                    <label htmlFor="item-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                                    <form onSubmit={handleBooking}>
-                                        <input type="text" name='title' defaultValue={item.title} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="text" name='price' defaultValue={item.resale_price} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="text" name='pname' defaultValue={user?.displayName} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="text" name='email' defaultValue={user?.email} readOnly placeholder="Email" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="text" name='location' placeholder="Your Location" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                                        <input type="submit" value="SUBMIT" className="input input-bordered w-full font-bold  mb-3  text-white bg-slate-600" />
-                                    </form>
-                                </div>
-                            </div>
-                        </>
+
 
                     </div>)
+                }
+
+                {
+                    bookedProduct && <ItemModal key={bookedProduct._id} bookedProduct={bookedProduct} setBookedProduct={setBookedProduct}></ItemModal>
                 }
             </div>
 

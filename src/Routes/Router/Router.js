@@ -5,6 +5,9 @@ import Items from "../../Pages/Items/Items";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashBoard from "../../layout/DashBoard";
+import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
+import SellerProduct from "../../Pages/Dashboard/SellerProduct/SellerProduct";
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +38,23 @@ export const router = createBrowserRouter([
 
 
         ]
+    }, {
+
+
+        path: '/dashboard',
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyProduct></MyProduct>
+            },
+            {
+                path: '/dashboard/seller',
+                element: <SellerProduct></SellerProduct>
+            }
+        ]
     },
+
     {
         path: '/*',
         element: <div className="text-center h-4/5">

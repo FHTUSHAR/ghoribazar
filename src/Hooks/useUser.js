@@ -1,21 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../Context/AuthProvider';
 
-const useUser = () => {
-    const { user } = useContext(AuthContext)
-    const [isAdmin, setIsAdmin] = useState(false)
-    const [isAdminLoading, setIsAdminLoading] = useState(true)
+
+const useUser = (email) => {
+
+    const [isBuyer, setIsBuyer] = useState(false)
+    const [isBuyerLoading, setIsBuyerLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/users/buyer/${user?.email}`)
+        fetch(`http://localhost:5000/users/buyer/${email}`)
             .then(res => res.json())
             .then(data => {
 
-                setIsAdmin(data.isAdmin)
-                setIsAdminLoading(false)
+                setIsBuyer(data.isAdmin)
+                setIsBuyerLoading(false)
                 // console.log(isAdmin)
             })
-    }, [user?.email])
-    return [isAdmin, isAdminLoading]
+    }, [email])
+    return [isBuyer, isBuyerLoading]
 };
 
 export default useUser;

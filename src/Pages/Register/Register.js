@@ -117,7 +117,7 @@ const Register = () => {
                     <div><input type="textl" name='phone' placeholder="Type phone" className="input input-bordered input-accent w-3/4 mb-4  " required /></div>
                     <div> <input type="password" name='password' placeholder="Type password" className="input input-bordered input-accent w-3/4 mb-4" required /></div>
                     <div><select className='text-white bg-black input input-bordered input-accent w-3/4 mb-4' name='options'>
-                        <option selected>User</option>
+                        <option selected>Buyer</option>
                         <option>Seller</option>
                     </select></div>
                     <div><input type="submit" placeholder="Type password" className="btn btn-primary px-9 " /></div>
