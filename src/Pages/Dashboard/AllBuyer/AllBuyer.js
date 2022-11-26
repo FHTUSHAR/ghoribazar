@@ -23,16 +23,7 @@ const AllBuyer = () => {
                 refetch()
             })
     }
-    const handleAdmin = (id) => {
-        fetch(`http://localhost:5000/makeadmin/${id}`, {
-            method: 'PUT',
-            'content-type': 'application/json'
-        })
-            .then(res => res.json())
-            .then(data => {
-                refetch()
-            })
-    }
+
     return (
         <div>
             <h2 className='text-3xl text-red-500'>All Buyer</h2>
@@ -45,7 +36,7 @@ const AllBuyer = () => {
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Action</th>
-                            <th>Action</th>
+
                         </tr>
                     </thead>
                     {
@@ -57,9 +48,7 @@ const AllBuyer = () => {
                                 <td>{buyer.email}</td>
                                 <td>{buyer.phone}</td>
                                 <td><button onClick={() => handleDelete(buyer._id)} className='btn btn-primary btn-sm'>Delete</button></td>
-                                {
-                                    buyer?.type !== 'admin' && <td><button onClick={() => handleAdmin(buyer._id)} className='btn btn-primary btn-sm'>Admin</button></td>
-                                }
+
                             </tr>
 
                         </tbody>)
