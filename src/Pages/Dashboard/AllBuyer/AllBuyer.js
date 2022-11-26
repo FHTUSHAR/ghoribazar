@@ -24,14 +24,14 @@ const AllBuyer = () => {
             })
     }
     const handleAdmin = (id) => {
-        // fetch(`http://localhost:5000/makeadmin/${id}`, {
-        //     method: 'PUT',
-        //     'content-type': 'application/json'
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         refetch()
-        //     })
+        fetch(`http://localhost:5000/makeadmin/${id}`, {
+            method: 'PUT',
+            'content-type': 'application/json'
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+            })
     }
     return (
         <div>
