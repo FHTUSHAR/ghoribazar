@@ -10,7 +10,8 @@ const useUser = (email) => {
             .then(res => res.json())
             .then(data => {
 
-                setIsBuyer(data.isAdmin)
+                setIsBuyer(data.isBuyer)
+                console.log(isBuyer)
                 setIsBuyerLoading(false)
                 // console.log(isAdmin)
             })

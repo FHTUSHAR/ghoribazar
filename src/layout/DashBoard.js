@@ -5,9 +5,9 @@ import useUser from '../Hooks/useUser';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashBoard = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const [isBuyer] = useUser(user?.email)
-
+    console.log(isBuyer)
 
     return (
         <div>
@@ -22,11 +22,11 @@ const DashBoard = () => {
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80  border-2 border-red-600 text-white text-base-content">
 
-                        {isBuyer &&
+                        {isBuyer === true ? <>
                             <li ><Link to={'/dashboard'} className='text-white'>My Product</Link></li>
-                        }
-                        {
-                            !isBuyer && <>
+                        </>
+                            :
+                            <>
                                 <li ><Link to={'/dashboard/seller'} className='text-white'>My Product</Link></li>
                                 <li ><Link to={'/dashboard/addproduct'} className='text-white'>Add Product</Link></li>
                             </>

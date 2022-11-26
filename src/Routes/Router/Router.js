@@ -8,6 +8,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashBoard from "../../layout/DashBoard";
 import MyProduct from "../../Pages/Dashboard/MyProduct/MyProduct";
 import SellerProduct from "../../Pages/Dashboard/SellerProduct/SellerProduct";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +52,9 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/seller',
                 element: <SellerProduct></SellerProduct>
+            }, {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
             }
         ]
     },

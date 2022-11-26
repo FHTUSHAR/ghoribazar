@@ -55,7 +55,7 @@ const SellerProduct = () => {
                                 </td>
                                 <td>{sproduct.title}</td>
                                 <td>${sproduct.resale_price}</td>
-                                <td>${sproduct.location}</td>
+                                <td>{sproduct.location}</td>
 
                             </tr>
 
