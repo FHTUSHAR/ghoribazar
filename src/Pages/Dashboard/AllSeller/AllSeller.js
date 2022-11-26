@@ -10,7 +10,38 @@ const AllSeller = () => {
         }
     })
     return (
-       
+        <div>
+            <h2 className='text-3xl text-red-500'>My Product</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full rounded-0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    {
+                        allSeller.map((seller, i) => <tbody key={seller._id}>
+                            <tr>
+                                <th>{i += 1}</th>
+
+                                <td>{seller.name}</td>
+                                <td>{seller.email}</td>
+                                <td>{seller.phone}</td>
+                                <td><button className='btn btn-primary btn-sm'>Delete</button></td>
+                                <td><button className='btn btn-primary btn-sm'>Admin</button></td>
+                            </tr>
+
+                        </tbody>)
+                    }
+
+                </table>
+            </div>
+        </div>
     );
 };
 
