@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { TailSpin } from 'react-loader-spinner';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const MyProduct = () => {
@@ -28,7 +29,7 @@ const MyProduct = () => {
     console.log(myBookingProducts)
     return (
         <div>
-            <h2 className='text-3xl text-red-500'>My Product</h2>
+            <h2 className='text-3xl text-red-500'>My Orders</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-0">
                     <thead>
@@ -56,7 +57,17 @@ const MyProduct = () => {
                                 </td>
                                 <td>{product.title}</td>
                                 <td>${product.price}</td>
-                                <td><button className='btn btn-primary btn-xs'>PAY</button></td>
+                                <td>{
+                                    !product.paid &&
+                                    <Link to={`/dashboard/payment/${product._id}`}><button className='btn btn-primary btn-xs'>PAY</button></Link>
+                                }
+                                    {
+                                        product.paid &&
+                                        <Link ><button disabled className='btn btn-primary btn-xs'>PAID</button></Link>
+                                    }
+
+                                </td>
+
                             </tr>
 
                         </tbody>)

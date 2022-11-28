@@ -12,6 +12,8 @@ import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import AllBuyer from "../../Pages/Dashboard/AllBuyer/AllBuyer";
 import AllSeller from "../../Pages/Dashboard/AllSeller/AllSeller";
 import AllUser from "../../Pages/Dashboard/AllUser/AllUser";
+import Payment from "../../Pages/Payment/Payment";
+import Blogs from "../../Pages/Blogs/Blogs";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             }
 
 
@@ -49,7 +55,7 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
+                path: '/dashboard/myproduct',
                 element: <MyProduct></MyProduct>
             },
             {
@@ -71,7 +77,14 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/alluser',
                 element: <AllUser></AllUser>
-            }
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => {
+                    return fetch(`http://localhost:5000/orders/${params.id}`)
+                }
+            },
         ]
     },
 

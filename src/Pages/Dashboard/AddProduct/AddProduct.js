@@ -10,6 +10,10 @@ const AddProduct = () => {
 
 
     const handleAddProduct = data => {
+
+        const DatePicker = new Date();
+        const date = `${DatePicker.getDate()}/${DatePicker.getMonth() + 1
+            }/${DatePicker.getFullYear()}`;
         const image = data.img[0]
         const { category_id, title, location, resale_price, original_price, use_time, posted_time, condition } = data
         const formData = new FormData();
@@ -33,7 +37,7 @@ const AddProduct = () => {
                         resale_price,
                         original_price,
                         use_time,
-                        posted_time,
+                        posted_time: date,
                         condition,
                         img_url: imgData.data.url
 
@@ -121,13 +125,13 @@ const AddProduct = () => {
                     </div>
                 </div>
                 <div className='grid lg:grid-cols-2'>
-                    <div className=''>
+                    {/* <div className=''>
                         <label className="label">
                             <span className="label-text text-xl text-white">Posted time</span>
                         </label>
                         <input  {...register("posted_time", { required: "posted_time is required" })} type="text" aria-invalid={errors.posted_time ? "true" : "false"} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                         {errors.posted_time && <p className='text-red-600' role="alert">{errors.posted_time?.message}</p>}
-                    </div>
+                    </div> */}
                     <div className=''>
                         <label className="label">
                             <span className="label-text text-xl text-white">Condition</span>

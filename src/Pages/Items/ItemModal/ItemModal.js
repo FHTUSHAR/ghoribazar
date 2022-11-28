@@ -5,6 +5,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const ItemModal = ({ bookedProduct, setBookedProduct }) => {
     const { user } = useContext(AuthContext)
     const navigation = useNavigation()
+
     console.log(bookedProduct)
     const handleBooking = (event) => {
         event.preventDefault();

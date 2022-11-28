@@ -25,15 +25,15 @@ const DashBoard = () => {
                     <ul className="menu p-4 w-80  border-2 border-red-600 text-white text-base-content">
 
                         {
-                            isAdmin === true ? <>
+                            isAdmin ? <>
                                 <li ><Link to={'/dashboard/alluser'} className='text-white'>All User</Link></li>
                                 <li ><Link to={'/dashboard/allbuyer'} className='text-white'>All Buyer</Link></li>
                                 <li ><Link to={'/dashboard/allseller'} className='text-white'>All Seller</Link></li>
 
                             </>
                                 :
-                                isBuyer === true ? <>
-                                    <li ><Link to={'/dashboard'} className='text-white'>My Product</Link></li>
+                                isBuyer ? <>
+                                    <li ><Link to={'/dashboard/myproduct'} className='text-white'>My Orders</Link></li>
                                 </> :
                                     <>
                                         <li ><Link to={'/dashboard/seller'} className='text-white'>My Product</Link></li>

@@ -6,13 +6,37 @@ import { AuthContext } from '../../../Context/AuthProvider';
 const SellerProduct = () => {
     const { user, loading } = useContext(AuthContext)
 
-    const { data: sellerProducts = [] } = useQuery({
+    const { data: sellerProducts = [], refetch } = useQuery({
         queryKey: ['myBookingProducts'], queryFn: async () => {
             const product = await fetch(`http://localhost:5000/sellerproduct/${user?.email}`)
             const data = await product.json()
             return data;
         }
     })
+    const handleDelete = (id) => {
+        console.log(id)
+        fetch(`http://localhost:5000/sellerdelete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+            })
+    }
+    const handleAd = (ad) => {
+
+        fetch(`http://localhost:5000/advertise`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(ad)
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+            })
+    }
     if (loading) {
         return <TailSpin
             height="80"
@@ -36,7 +60,8 @@ const SellerProduct = () => {
                             <th>Product</th>
                             <th>Title</th>
                             <th>Price</th>
-                            <th>Location</th>
+                            <th>Delete</th>
+                            <th>Advertise</th>
                         </tr>
                     </thead>
                     {
@@ -55,7 +80,8 @@ const SellerProduct = () => {
                                 </td>
                                 <td>{sproduct.title}</td>
                                 <td>${sproduct.resale_price}</td>
-                                <td>{sproduct.location}</td>
+                                <td><button onClick={() => { handleDelete(sproduct._id) }} className='btn btn-primary btn-sm'>DELETE</button></td>
+                                <td><button onClick={() => { handleAd(sproduct) }} className='btn btn-primary btn-sm'>Advertise</button></td>
 
                             </tr>
 

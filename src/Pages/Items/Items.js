@@ -1,13 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { BsCheck2, FaCheck } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider';
 import ItemModal from './ItemModal/ItemModal';
+import useUser from '../../Hooks/useUser';
+import useVerify from '../../Hooks/useVerify';
 
 const Items = () => {
+    const [verified, setVerified] = useState()
+
+    console.log('verify', verified)
     const items = useLoaderData();
     const [bookedProduct, setBookedProduct] = useState(null)
     const { user } = useContext(AuthContext)
+    const [isBuyer] = useUser(user?.email)
 
     return (
         <div className='p-6 divide-y divide-red-600'>
@@ -17,6 +23,7 @@ const Items = () => {
                 {
                     items.map(item => <div key={item._id} className="card  border-white font-thin  bg-black text-white shadow-red-700 shadow-xl">
                         <figure><img className='w-88' src={item.img_url} alt="Watch" /></figure>
+
                         <div className="card-body">
                             <h2 className="card-title">Title : {item.title}</h2>
                             <h2 className="card-title font-thin"><small>Location : {item.location}</small></h2>
@@ -26,6 +33,7 @@ const Items = () => {
                             <div className='flex'>
                                 <h2 className="card-title font-thin mr-4"><small> Seller : {item.seller_name}</small></h2>
                                 {
+
                                     item.verified === 'true' ? <>
                                         <h2><small className='text-primary'> <FaCheck className='mt-2' /></small></h2>
                                     </> :
@@ -34,7 +42,8 @@ const Items = () => {
 
                             </div>
 
-                            <label htmlFor="item-modal" onClick={() => { setBookedProduct(item) }} className="btn btn-success text-white mx-auto px-12">BOOK Now</label>
+                            {
+                                isBuyer && <label htmlFor="item-modal" onClick={() => { setBookedProduct(item) }} className="btn btn-success text-white mx-auto px-12">BOOK Now</label>}
 
                         </div>
 

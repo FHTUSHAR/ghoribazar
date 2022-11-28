@@ -1,7 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import useVerify from '../../../Hooks/useVerify';
 
 const AllSeller = () => {
+    const { user } = useContext(AuthContext)
+    // const [isVerify] = useVerify(user?.email)
     const { data: allSeller = [], refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
             const product = await fetch(`http://localhost:5000/allseller`)
@@ -9,9 +13,22 @@ const AllSeller = () => {
             return data;
         }
     })
+
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/buyerdelete/${id}`, {
             method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                refetch()
+            })
+    }
+    const handleVerify = (id) => {
+        fetch(`http://localhost:5000/verify/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -30,7 +47,7 @@ const AllSeller = () => {
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Action</th>
-                            <th>Action</th>
+                            <th>Verification</th>
                         </tr>
                     </thead>
                     {
@@ -42,6 +59,9 @@ const AllSeller = () => {
                                 <td>{seller.email}</td>
                                 <td>{seller.phone}</td>
                                 <td><button onClick={() => handleDelete(seller._id)} className='btn btn-primary btn-sm'>Delete</button></td>
+                                {
+
+                                    <td><button onClick={() => handleVerify(seller._id)} className='btn btn-primary btn-sm'>Verify</button></td>}
 
                             </tr>
 
