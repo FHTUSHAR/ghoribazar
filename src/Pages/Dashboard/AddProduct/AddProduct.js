@@ -50,7 +50,7 @@ const AddProduct = () => {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-                            // authozization: `bearer ${localStorage.getItem('accessToken')}`
+                            authozization: `bearer ${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(product)
                     })
@@ -58,8 +58,7 @@ const AddProduct = () => {
                         .then(data => {
                             console.log(data)
                             if (data.acknowledged) {
-                                // toast.success('Doctor added')
-                                // navigate('/dashboard/manageDoctors')
+
                                 toast('Add Successfully')
                             }
                         })

@@ -9,7 +9,7 @@ const DashBoard = () => {
     const { user, loading } = useContext(AuthContext)
     const [isBuyer] = useUser(user?.email)
     const [isAdmin] = useAdmin(user?.email)
-    console.log(isBuyer)
+
 
     return (
         <div>
@@ -34,6 +34,7 @@ const DashBoard = () => {
                                 :
                                 isBuyer ? <>
                                     <li ><Link to={'/dashboard/myproduct'} className='text-white'>My Orders</Link></li>
+                                    <li ><Link to={'/dashboard/mywishproduct'} className='text-white'>My WishList</Link></li>
                                 </> :
                                     <>
                                         <li ><Link to={'/dashboard/seller'} className='text-white'>My Product</Link></li>

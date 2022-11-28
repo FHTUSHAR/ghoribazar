@@ -5,8 +5,11 @@ import { AuthContext } from '../../Context/AuthProvider';
 import ItemModal from './ItemModal/ItemModal';
 import useUser from '../../Hooks/useUser';
 import useVerify from '../../Hooks/useVerify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Items = () => {
+
     const [verified, setVerified] = useState()
 
     console.log('verify', verified)
@@ -14,9 +17,27 @@ const Items = () => {
     const [bookedProduct, setBookedProduct] = useState(null)
     const { user } = useContext(AuthContext)
     const [isBuyer] = useUser(user?.email)
+    const handleWIshList = (item) => {
 
+        delete item.seller_email
+        delete item._id
+        const wish = { ...item, buyer: user?.email }
+        console.log(wish)
+        fetch('http://localhost:5000/wishlist', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(wish)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast('Added to wishlist')
+            })
+    }
     return (
         <div className='p-6 divide-y divide-red-600'>
+            <ToastContainer />
             <h1 className='text-3xl font-semibold text-white ml-6 mb-5'>Items</h1>
 
             <div className='grid lg:grid-cols-3 gap-9 p-6'>
@@ -43,7 +64,10 @@ const Items = () => {
                             </div>
 
                             {
-                                isBuyer && <label htmlFor="item-modal" onClick={() => { setBookedProduct(item) }} className="btn btn-success text-white mx-auto px-12">BOOK Now</label>}
+                                isBuyer && < div className='flex'>
+                                    <label htmlFor="item-modal" onClick={() => { setBookedProduct(item) }} className="btn btn-success text-white mx-auto px-12">BOOK Now</label>
+                                    <button onClick={() => { handleWIshList(item) }} className='btn btn-primary btn-sm'>WishList</button>
+                                </div>}
 
                         </div>
 

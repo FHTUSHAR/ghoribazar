@@ -14,6 +14,9 @@ import AllSeller from "../../Pages/Dashboard/AllSeller/AllSeller";
 import AllUser from "../../Pages/Dashboard/AllUser/AllUser";
 import Payment from "../../Pages/Payment/Payment";
 import Blogs from "../../Pages/Blogs/Blogs";
+import WishList from "../../Pages/Dashboard/WishList/WishList";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +34,11 @@ export const router = createBrowserRouter([
             {
                 path: '/items/:id',
                 element: <PrivateRoute> <Items></Items></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`, {
+                    headers: {
+                        authozization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
             },
             {
                 path: '/login',
@@ -60,23 +67,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/seller',
-                element: <SellerProduct></SellerProduct>
+                element: <SellerRoute><SellerProduct></SellerProduct></SellerRoute>
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AddProduct></AddProduct>
+                element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
             {
                 path: '/dashboard/allbuyer',
-                element: <AllBuyer></AllBuyer>
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
             {
                 path: '/dashboard/allseller',
-                element: <AllSeller></AllSeller>
+                element: <AdminRoute> <AllSeller></AllSeller></AdminRoute>
             },
             {
                 path: '/dashboard/alluser',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+            {
+                path: '/dashboard/mywishproduct',
+                element: <WishList></WishList>
             },
             {
                 path: '/dashboard/payment/:id',

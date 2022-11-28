@@ -6,7 +6,6 @@ import { AuthContext } from '../../Context/AuthProvider';
 const PrivateRoute = ({ children }) => {
     let location = useLocation()
     const { user, loading } = useContext(AuthContext)
-    console.log(user)
     if (loading) {
         return <TailSpin
             height="80"

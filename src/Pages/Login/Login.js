@@ -3,41 +3,34 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { TailSpin } from 'react-loader-spinner'
 import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const { loginUser, googleSignIn, loading } = useContext(AuthContext)
+    const [temail, setTEmail] = useState('')
+    console.log(temail)
+    const [token] = useToken(temail)
     const [error, setError] = useState('')
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
-
+    if (token) {
+        navigate(from, { replace: true })
+    }
     const handleSubmit = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
-
         const password = form.password.value;
+        setTEmail(email)
 
         loginUser(email, password)
             .then(result => {
                 const user = result.user;
-                //         const currentUser = {
-                //             email: user.email
-                //         }
-                //         fetch('https://doctors-services-server.vercel.app/jwt', {
-                //             method: 'POST',
-                //             headers: {
-                //                 'content-type': 'application/json'
-                //             },
-                //             body: JSON.stringify(currentUser)
-                //         })
-                //             .then(res => res.json())
-                //             .then(data => {
-                //                 console.log(data)
-                //                 localStorage.setItem('doctorToken', data.token)
-                //                 // navigate(from, { replace: true });
-                //             })
-                // //             .catch(error => console.error(error))
+
+                console.log(email)
+
                 form.reset()
 
                 setError('')

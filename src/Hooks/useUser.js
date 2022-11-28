@@ -11,7 +11,6 @@ const useUser = (email) => {
             .then(data => {
 
                 setIsBuyer(data.isBuyer)
-                console.log(isBuyer)
                 setIsBuyerLoading(false)
                 // console.log(isAdmin)
             })

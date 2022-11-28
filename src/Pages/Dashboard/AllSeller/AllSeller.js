@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../../Context/AuthProvider';
 import useVerify from '../../../Hooks/useVerify';
 
@@ -8,7 +9,11 @@ const AllSeller = () => {
     // const [isVerify] = useVerify(user?.email)
     const { data: allSeller = [], refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/allseller`)
+            const product = await fetch(`http://localhost:5000/allseller`, {
+                headers: {
+                    authozization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await product.json()
             return data;
         }
@@ -16,7 +21,10 @@ const AllSeller = () => {
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/buyerdelete/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authozization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -27,7 +35,8 @@ const AllSeller = () => {
         fetch(`http://localhost:5000/verify/${id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authozization: `bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => res.json())
@@ -37,6 +46,11 @@ const AllSeller = () => {
     }
     return (
         <div>
+            <Helmet>
+
+                <title>All Seller</title>
+
+            </Helmet>
             <h2 className='text-3xl text-red-500'>All Seller</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-0">

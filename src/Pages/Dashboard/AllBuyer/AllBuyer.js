@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../../Context/AuthProvider';
 import useAdmin from '../../../Hooks/useAdmin';
 
@@ -9,14 +10,21 @@ const AllBuyer = () => {
 
     const { data: allBuyers = [], refetch } = useQuery({
         queryKey: ['buyers'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/allbuyer`)
+            const product = await fetch(`http://localhost:5000/allbuyer`, {
+                headers: {
+                    authozization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await product.json()
             return data;
         }
     })
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/buyerdelete/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                authozization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {
@@ -26,6 +34,11 @@ const AllBuyer = () => {
 
     return (
         <div>
+            <Helmet>
+
+                <title>All Buyer</title>
+
+            </Helmet>
             <h2 className='text-3xl text-red-500'>All Buyer</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-0">
@@ -40,7 +53,7 @@ const AllBuyer = () => {
                         </tr>
                     </thead>
                     {
-                        allBuyers.map((buyer, i) => <tbody key={buyer._id}>
+                        allBuyers?.map((buyer, i) => <tbody key={buyer._id}>
                             <tr>
                                 <th>{i += 1}</th>
 
