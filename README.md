@@ -10,3 +10,5 @@ Live : https://watch-resales.web.app/
  * Seller Pannel
  * Buyers orders
  * Buyers wishlist
+Admin :tushar@gmail.com
+Password :111111
