@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../../Context/AuthProvider'
 
 const AddProduct = () => {
@@ -58,7 +60,7 @@ const AddProduct = () => {
                             if (data.acknowledged) {
                                 // toast.success('Doctor added')
                                 // navigate('/dashboard/manageDoctors')
-                                alert('success')
+                                toast('Add Successfully')
                             }
                         })
                         .catch(e => console.error(e))
@@ -74,6 +76,7 @@ const AddProduct = () => {
     }
     return (
         <div className='lg:ml-7'>
+            <ToastContainer />
             <h1 className='text-white text-3xl'>ADD Product</h1>
             <form className='w-2/3 ' onSubmit={handleSubmit(handleAddProduct)}>
                 <div className='grid lg:grid-cols-2'>

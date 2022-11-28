@@ -2,6 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { AuthContext } from '../../../Context/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SellerProduct = () => {
     const { user, loading } = useContext(AuthContext)
@@ -14,26 +16,31 @@ const SellerProduct = () => {
         }
     })
     const handleDelete = (id) => {
-        console.log(id)
+        console.log(id, '=')
         fetch(`http://localhost:5000/sellerdelete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
+                toast('Deleted Successfully')
                 refetch()
             })
     }
-    const handleAd = (ad) => {
+    const handleAd = (ad, id) => {
+        delete ad._id
+        const advertise = { ...ad, adId: id }
 
+        console.log(advertise)
         fetch(`http://localhost:5000/advertise`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(ad)
+            body: JSON.stringify(advertise)
         })
             .then(res => res.json())
             .then(data => {
+                toast('Successfully add to the advertise section')
                 refetch()
             })
     }
@@ -51,6 +58,7 @@ const SellerProduct = () => {
     }
     return (
         <div>
+            <ToastContainer />
             <h2 className='text-3xl text-red-500'>All Product</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-0">
@@ -80,8 +88,8 @@ const SellerProduct = () => {
                                 </td>
                                 <td>{sproduct.title}</td>
                                 <td>${sproduct.resale_price}</td>
-                                <td><button onClick={() => { handleDelete(sproduct._id) }} className='btn btn-primary btn-sm'>DELETE</button></td>
-                                <td><button onClick={() => { handleAd(sproduct) }} className='btn btn-primary btn-sm'>Advertise</button></td>
+                                <td><button onClick={() => { handleDelete(sproduct._id, sproduct.title) }} className='btn btn-primary btn-sm'>DELETE</button></td>
+                                <td><button onClick={() => { handleAd(sproduct, sproduct._id) }} className='btn btn-primary btn-sm'>Advertise</button></td>
 
                             </tr>
 
