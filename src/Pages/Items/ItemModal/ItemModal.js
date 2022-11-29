@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ItemModal = ({ bookedProduct, setBookedProduct }) => {
     const { user } = useContext(AuthContext)
@@ -22,7 +24,7 @@ const ItemModal = ({ bookedProduct, setBookedProduct }) => {
             location,
             img: bookedProduct.img_url
         }
-        fetch('http://localhost:5000/bookingProducts', {
+        fetch('https://resell-goods-server.vercel.app/bookingProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,7 +32,7 @@ const ItemModal = ({ bookedProduct, setBookedProduct }) => {
             body: JSON.stringify(userBookedProduct)
         }).then(res => res.json())
             .then(data => {
-                alert('Product added')
+                toast('Product added')
                 console.log(data)
                 setBookedProduct(null)
             })
@@ -41,15 +43,16 @@ const ItemModal = ({ bookedProduct, setBookedProduct }) => {
         <>
             <input type="checkbox" id="item-modal" className="modal-toggle" />
             <div className="modal ">
-                <div className="modal-box relative bg-black">
+                <ToastContainer />
+                <div className="modal-box relative">
                     <label htmlFor="item-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleBooking}>
-                        <input type="text" name='title' defaultValue={bookedProduct.title} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                        <input type="text" name='price' defaultValue={bookedProduct.resale_price} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                        <input type="text" name='pname' defaultValue={user?.displayName} readOnly placeholder="Full Name" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                        <input type="text" name='email' defaultValue={user?.email} readOnly placeholder="Email" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                        <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full text-black font-semibold  mb-3" />
-                        <input type="text" name='location' placeholder="Your Location" className="input input-bordered w-full text-black font-semibold  mb-3" />
+                        <input type="text" name='title' defaultValue={bookedProduct.title} readOnly placeholder="Full Name" className="input input-bordered w-full  font-semibold  mb-3" />
+                        <input type="text" name='price' defaultValue={bookedProduct.resale_price} readOnly placeholder="Full Name" className="input input-bordered w-full  font-semibold  mb-3" />
+                        <input type="text" name='pname' defaultValue={user?.displayName} readOnly placeholder="Full Name" className="input input-bordered w-full  font-semibold  mb-3" />
+                        <input type="text" name='email' defaultValue={user?.email} readOnly placeholder="Email" className="input input-bordered w-full  font-semibold  mb-3" />
+                        <input type="text" name='phone' placeholder="Phone Number" className="input input-bordered w-full font-semibold  mb-3" />
+                        <input type="text" name='location' placeholder="Your Location" className="input input-bordered w-full  font-semibold  mb-3" />
                         <input type="submit" value="SUBMIT" className="input input-bordered w-full font-bold  mb-3  text-white bg-slate-600" />
                     </form>
                 </div>

@@ -4,7 +4,8 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { TailSpin } from 'react-loader-spinner'
 import { FaGoogle } from 'react-icons/fa';
 import useToken from '../../Hooks/useToken';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
     const { user, createUser, googleSignIn, userProfile, loading } = useContext(AuthContext)
     const [error, setError] = useState('')
@@ -31,7 +32,7 @@ const Register = () => {
         console.log(name, email, password, opt, phone)
         createUser(email, password)
             .then(result => {
-                setCreatedUserEmail(email)
+
 
                 handleUpdateUserProfile(name)
 
@@ -74,6 +75,7 @@ const Register = () => {
     }
 
     const saveUserToDatabase = (name, email, opt, phone = '017xxxxxxxx') => {
+        setCreatedUserEmail(email)
         const customer = {
             name,
             email,
@@ -81,7 +83,7 @@ const Register = () => {
             type: opt
         }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://resell-goods-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -91,7 +93,7 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                alert('Successfully Inserted')
+                toast('Successfully Inserted')
             })
     }
     if (!error) {
@@ -112,7 +114,7 @@ const Register = () => {
 
     return (
         <div className="card lg:card-side  p-4 mx-auto w-1/2">
-
+            <ToastContainer />
             <div className="card-body w-1/2 shadow-xl rounded-lg p-4 text-center shadow-red-700">
                 <h2 className='text-2xl font-bold text-blue-600'>Register</h2>
                 <form className='p-4' onSubmit={handleSubmit}>

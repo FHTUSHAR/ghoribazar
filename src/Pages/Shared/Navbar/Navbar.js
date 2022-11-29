@@ -14,82 +14,54 @@ const Navbar = () => {
                 console.error(err)
             })
     }
+    const navItems = <React.Fragment>
+        <li><Link className='text-white' to={'/home'}>Home</Link></li>
+
+        <li>
+            <Link className='text-white' to={'/blogs'}>Blog</Link>
+        </li>
+        <li>
+            {
+                user?.uid ?
+                    <>
+
+                        <Link to={'/dashboard'} className='text-white'>Dashboard</Link>
+                        <li><button onClick={logOutBtn} className='text-white'>Log Out</button></li>
+
+                    </>
+                    :
+                    <>
+                        <li><Link className='text-white' to={'/login'}>Login</Link></li>
+                    </>
+            }
+        </li>
+
+
+    </React.Fragment>
     return (
-        <div className="navbar bg-black text-white  px-12">
-            <div className="navbar-start ">
+        <div className="navbar bg-base-100 h-16">
+            <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to={'/home'}>Home</Link></li>
-                        <li >
-                            <Link to={'/services'}>
-                                Services
-                            </Link>
-
-                        </li>
-                        <li>
-                            <Link to={'/blog'}>Blog</Link>
-                        </li>
-                        {/* {
-                            user?.uid ?
-                                <>
-                                    <li><Link to={`/myreview`}>My Review</Link></li>
-                                    <li><Link to={'/addservices'}>Add Service</Link></li>
-
-                                </>
-                                :
-                                <>
-
-                                </>
-                        } */}
+                        {navItems}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-white text-3xl"><img className='w-16 rounded-full' src={img} alt="" /> Ghori Bazar</Link>
+                <a className="btn btn-ghost normal-case text-3xl">Ghorir Bazar</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal p-0 font-semibold">
-                    <li><Link to={'/home'}>Home</Link></li>
-
-                    <li>
-                        <Link to={'/blogs'}>Blog</Link>
-                    </li>
-
-                    {/* {
-                        user?.uid ?
-                            <>
-                                <li><Link to={`/myreview`}>My Review</Link></li>
-                                <li><Link to={'/addservices'}>Add Service</Link></li>
-
-                            </>
-                            :
-                            <>
-
-                            </>
-                    } */}
-
-
-                </ul>
-            </div>
-            <div className="navbar-end">
-                <ul className="menu menu-horizontal p-0 font-semibold">
+                <ul className="menu menu-horizontal p-0">
                     {
-                        user?.uid ?
-                            <>
-
-                                <li><Link to={'/dashboard'} className='text-white'>Dashboard</Link></li>
-                                <li><button onClick={logOutBtn} className='text-white'>Log Out</button></li>
-
-                            </>
-                            :
-                            <>
-                                <li><Link className='text-white' to={'/login'}>Login</Link></li>
-                            </>
+                        navItems
                     }
-
                 </ul>
+
             </div>
+            <label htmlFor='dashboard-drawer' tabIndex={2} className="btn btn-ghost  lg:hidden ml-8">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
         </div>
     );
 };

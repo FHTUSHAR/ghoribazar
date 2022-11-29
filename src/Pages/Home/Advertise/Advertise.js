@@ -7,7 +7,7 @@ const Advertise = () => {
     const [adProducts, setAdProducts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/advertise").then((data) => {
+        axios.get("https://resell-goods-server.vercel.app/advertise").then((data) => {
             setAdProducts(data.data);
         });
     }, []);
@@ -24,7 +24,7 @@ const Advertise = () => {
 
                             {
                                 adProducts.map(product => <Link key={product._id}>
-                                    <div className="card  border-white  bg-black text-white shadow-red-700 shadow-xl">
+                                    <div className="card  border-white   text-white shadow-red-700 shadow-xl">
                                         <figure><img className='w-88' src={product.img_url} alt="Watch" /></figure>
                                         <div className="card-body">
                                             <h2 className="card-title">{product.title}</h2>

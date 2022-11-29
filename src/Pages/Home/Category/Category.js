@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Category = () => {
     const { data: products = [] } = useQuery({
         queryKey: ['products'], queryFn: async () => {
-            const product = await fetch('http://localhost:5000/products')
+            const product = await fetch('https://resell-goods-server.vercel.app/products')
             const data = await product.json()
             return data;
         }
@@ -17,7 +17,7 @@ const Category = () => {
 
                 {
                     products.map(product => <Link to={`/items/${product.category_id}`} key={product._id}>
-                        <div className="card  border-white  bg-black text-white shadow-red-700 shadow-xl">
+                        <div className="card  border-white   text-white shadow-red-700 shadow-xl">
                             <figure><img className='w-88' src={product.image} alt="Watch" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{product.category_title}</h2>

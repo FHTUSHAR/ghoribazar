@@ -33,6 +33,7 @@ const Login = () => {
                 form.reset()
 
                 setError('')
+
                 navigate(from, { replace: true });
             })
             .catch(error => {
@@ -40,35 +41,7 @@ const Login = () => {
                 console.error(error)
             })
     }
-    const googleBtn = () => {
-        googleSignIn()
-            .then(result => {
-                const user = result.user;
-                const currentUser = {
-                    email: user.email
-                }
-                // fetch('https://doctors-services-server.vercel.app/jwt', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(currentUser)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         console.log(data)
-                //         localStorage.setItem('doctorToken', data.token)
-                //         // navigate(from, { replace: true });
-                //     })
-                //     .catch(error => console.error(error))
-                navigate(from, { replace: true });
-                setError('')
-            })
-            .catch(err => {
-                setError(err.message)
-                console.error(err)
-            })
-    }
+
     if (!error) {
         if (loading) {
             return <TailSpin
@@ -95,7 +68,7 @@ const Login = () => {
                     <div> <input type="password" name='password' placeholder="Type password" className="input input-bordered input-accent w-3/4 mb-4 " required /></div>
                     <div><input type="submit" placeholder="Type password" className="btn btn-primary px-9 " /></div>
                 </form>
-                <div><button onClick={googleBtn} className="btn btn-outline btn-success w-1/3 justify-between"> <FaGoogle className=' border-green-600 text-2xl rounded-full' />Google <span></span></button></div>
+                {/* <div><button onClick={googleBtn} className="btn btn-outline btn-success w-1/3 justify-between"> <FaGoogle className=' border-green-600 text-2xl rounded-full' />Google <span></span></button></div> */}
                 <p>Don't have an account.Please <Link to={'/register'} className='text-blue-700'>Register</Link></p>
                 <p>{error}</p>
             </div>

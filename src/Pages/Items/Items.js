@@ -23,7 +23,7 @@ const Items = () => {
         delete item._id
         const wish = { ...item, buyer: user?.email }
         console.log(wish)
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://resell-goods-server.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -36,13 +36,13 @@ const Items = () => {
             })
     }
     return (
-        <div className='p-6 divide-y divide-red-600'>
+        <div className='p-6   divide-y divide-red-600 divide-red-600'>
             <ToastContainer />
             <h1 className='text-3xl font-semibold text-white ml-6 mb-5'>Items</h1>
 
             <div className='grid lg:grid-cols-3 gap-9 p-6'>
                 {
-                    items.map(item => <div key={item._id} className="card  border-white font-thin  bg-black text-white shadow-red-700 shadow-xl">
+                    items.map(item => <div key={item._id} className="card  border-white font-thin   text-white shadow-red-700 shadow-xl">
                         <figure><img className='w-88' src={item.img_url} alt="Watch" /></figure>
 
                         <div className="card-body">

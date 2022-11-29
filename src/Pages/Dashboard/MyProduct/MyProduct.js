@@ -9,7 +9,7 @@ const MyProduct = () => {
 
     const { data: myBookingProducts = [] } = useQuery({
         queryKey: ['myBookingProducts'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/mybookingproduct/${user?.email}`, {
+            const product = await fetch(`https://resell-goods-server.vercel.app/mybookingproduct/${user?.email}`, {
                 headers: {
                     authozization: `bearer ${localStorage.getItem('accessToken')}`
                 }

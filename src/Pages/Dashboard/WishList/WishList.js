@@ -9,7 +9,7 @@ const WishList = () => {
 
     const { data: mywishlist = [] } = useQuery({
         queryKey: ['mylist'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/mywishList/${user?.email}`)
+            const product = await fetch(`https://resell-goods-server.vercel.app/mywishList/${user?.email}`)
             const data = await product.json()
             return data;
         }
@@ -28,7 +28,7 @@ const WishList = () => {
     }
     return (
         <div>
-            <h2 className='text-3xl text-red-500'>My Orders</h2>
+            <h2 className='text-3xl text-red-500'>My WishList</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full rounded-0">
                     <thead>

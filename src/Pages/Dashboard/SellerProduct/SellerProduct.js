@@ -10,14 +10,14 @@ const SellerProduct = () => {
 
     const { data: sellerProducts = [], refetch } = useQuery({
         queryKey: ['myBookingProducts'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/sellerproduct/${user?.email}`)
+            const product = await fetch(`https://resell-goods-server.vercel.app/sellerproduct/${user?.email}`)
             const data = await product.json()
             return data;
         }
     })
     const handleDelete = (id) => {
         console.log(id, '=')
-        fetch(`http://localhost:5000/sellerdelete/${id}`, {
+        fetch(`https://resell-goods-server.vercel.app/sellerdelete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -31,7 +31,7 @@ const SellerProduct = () => {
         const advertise = { ...ad, adId: id }
 
         console.log(advertise)
-        fetch(`http://localhost:5000/advertise`, {
+        fetch(`https://resell-goods-server.vercel.app/advertise`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

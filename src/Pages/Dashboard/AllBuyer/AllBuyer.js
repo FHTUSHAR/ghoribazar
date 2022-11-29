@@ -8,9 +8,9 @@ const AllBuyer = () => {
     const { user } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
 
-    const { data: allBuyers = [], refetch } = useQuery({
+    const { data: allBuyers = [], refetch, isLoading } = useQuery({
         queryKey: ['buyers'], queryFn: async () => {
-            const product = await fetch(`http://localhost:5000/allbuyer`, {
+            const product = await fetch(`https://resell-goods-server.vercel.app/allbuyer`, {
                 headers: {
                     authozization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -20,7 +20,7 @@ const AllBuyer = () => {
         }
     })
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/buyerdelete/${id}`, {
+        fetch(`https://resell-goods-server.vercel.app/buyerdelete/${id}`, {
             method: 'DELETE',
             headers: {
                 authozization: `bearer ${localStorage.getItem('accessToken')}`
@@ -30,6 +30,9 @@ const AllBuyer = () => {
             .then(data => {
                 refetch()
             })
+    }
+    if (isLoading) {
+        return <p>loading...</p>
     }
 
     return (
