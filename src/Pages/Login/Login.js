@@ -8,7 +8,6 @@ import useToken from '../../Hooks/useToken';
 const Login = () => {
     const { loginUser, googleSignIn, loading } = useContext(AuthContext)
     const [temail, setTEmail] = useState('')
-    console.log(temail)
     const [token] = useToken(temail)
     const [error, setError] = useState('')
 

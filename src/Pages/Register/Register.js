@@ -12,7 +12,6 @@ const Register = () => {
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail)
 
-    console.log(createdUserEmail)
 
 
     if (token) {
@@ -28,7 +27,7 @@ const Register = () => {
         const password = form.password.value;
         const opt = form.options.value;
 
-
+        setCreatedUserEmail(email)
         console.log(name, email, password, opt, phone)
         createUser(email, password)
             .then(result => {

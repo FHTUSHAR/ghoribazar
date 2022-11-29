@@ -31,8 +31,8 @@ const AllSeller = () => {
                 refetch()
             })
     }
-    const handleVerify = (id) => {
-        fetch(`http://localhost:5000/verify/${id}`, {
+    const handleVerify = (email) => {
+        fetch(`http://localhost:5000/verify/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -75,7 +75,7 @@ const AllSeller = () => {
                                 <td><button onClick={() => handleDelete(seller._id)} className='btn btn-primary btn-sm'>Delete</button></td>
                                 {
 
-                                    <td><button onClick={() => handleVerify(seller._id)} className='btn btn-primary btn-sm'>Verify</button></td>}
+                                    <td><button onClick={() => handleVerify(seller.email)} className='btn btn-primary btn-sm'>Verify</button></td>}
 
                             </tr>
 
