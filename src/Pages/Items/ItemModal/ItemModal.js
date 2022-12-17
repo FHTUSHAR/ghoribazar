@@ -24,7 +24,7 @@ const ItemModal = ({ bookedProduct, setBookedProduct }) => {
             location,
             img: bookedProduct.img_url
         }
-        fetch('https://resell-goods-server.vercel.app/bookingProducts', {
+        fetch('http://localhost:5000/bookingProducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

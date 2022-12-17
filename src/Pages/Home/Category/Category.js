@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Category = () => {
     const { data: products = [] } = useQuery({
         queryKey: ['products'], queryFn: async () => {
-            const product = await fetch('https://resell-goods-server.vercel.app/products')
+            const product = await fetch('http://localhost:5000/products')
             const data = await product.json()
             return data;
         }

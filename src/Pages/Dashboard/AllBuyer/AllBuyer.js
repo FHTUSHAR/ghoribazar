@@ -10,7 +10,7 @@ const AllBuyer = () => {
 
     const { data: allBuyers = [], refetch, isLoading } = useQuery({
         queryKey: ['buyers'], queryFn: async () => {
-            const product = await fetch(`https://resell-goods-server.vercel.app/allbuyer`, {
+            const product = await fetch(`http://localhost:5000/allbuyer`, {
                 headers: {
                     authozization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -20,7 +20,7 @@ const AllBuyer = () => {
         }
     })
     const handleDelete = (id) => {
-        fetch(`https://resell-goods-server.vercel.app/buyerdelete/${id}`, {
+        fetch(`http://localhost:5000/buyerdelete/${id}`, {
             method: 'DELETE',
             headers: {
                 authozization: `bearer ${localStorage.getItem('accessToken')}`

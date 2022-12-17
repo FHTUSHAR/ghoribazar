@@ -9,7 +9,7 @@ const AllSeller = () => {
     // const [isVerify] = useVerify(user?.email)
     const { data: allSeller = [], refetch } = useQuery({
         queryKey: ['sellers'], queryFn: async () => {
-            const product = await fetch(`https://resell-goods-server.vercel.app/allseller`, {
+            const product = await fetch(`http://localhost:5000/allseller`, {
                 headers: {
                     authozization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -20,7 +20,7 @@ const AllSeller = () => {
     })
 
     const handleDelete = (id) => {
-        fetch(`https://resell-goods-server.vercel.app/buyerdelete/${id}`, {
+        fetch(`http://localhost:5000/buyerdelete/${id}`, {
             method: 'DELETE',
             headers: {
                 authozization: `bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const AllSeller = () => {
             })
     }
     const handleVerify = (email) => {
-        fetch(`https://resell-goods-server.vercel.app/verify/${email}`, {
+        fetch(`http://localhost:5000/verify/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

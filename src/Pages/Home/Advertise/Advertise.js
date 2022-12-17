@@ -7,7 +7,7 @@ const Advertise = () => {
     const [adProducts, setAdProducts] = useState([]);
 
     useEffect(() => {
-        axios.get("https://resell-goods-server.vercel.app/advertise").then((data) => {
+        axios.get("http://localhost:5000/advertise").then((data) => {
             setAdProducts(data.data);
         });
     }, []);

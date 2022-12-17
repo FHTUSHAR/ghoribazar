@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { TailSpin } from 'react-loader-spinner'
 import { FaGoogle } from 'react-icons/fa';
@@ -10,14 +10,12 @@ const Register = () => {
     const { user, createUser, googleSignIn, userProfile, loading } = useContext(AuthContext)
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const location = useLocation();
     const [createdUserEmail, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmail)
 
+    console.log(token)
 
-
-    if (token) {
-        navigate('/')
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -32,14 +30,8 @@ const Register = () => {
         console.log(name, email, password, opt, phone)
         createUser(email, password)
             .then(result => {
-
-
                 handleUpdateUserProfile(name)
-
                 saveUserToDatabase(name, email, opt, phone)
-
-
-                navigate('/')
                 form.reset()
                 setError('')
             })
@@ -83,7 +75,7 @@ const Register = () => {
             type: opt
         }
 
-        fetch('https://resell-goods-server.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -94,6 +86,7 @@ const Register = () => {
             .then(data => {
                 console.log(data)
                 toast('Successfully Inserted')
+                navigate('/home')
             })
     }
     if (!error) {

@@ -10,9 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Items = () => {
 
-    const [verified, setVerified] = useState()
-
-    console.log('verify', verified)
     const items = useLoaderData();
     const [bookedProduct, setBookedProduct] = useState(null)
     const { user } = useContext(AuthContext)
@@ -22,8 +19,7 @@ const Items = () => {
         delete item.seller_email
         delete item._id
         const wish = { ...item, buyer: user?.email }
-        console.log(wish)
-        fetch('https://resell-goods-server.vercel.app/wishlist', {
+        fetch('http://localhost:5000/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

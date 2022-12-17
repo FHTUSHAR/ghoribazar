@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
 import { TailSpin } from 'react-loader-spinner'
 import { AuthContext } from '../../Context/AuthProvider';
 import useToken from '../../Hooks/useToken';
 
 const Login = () => {
-    const { loginUser, googleSignIn, loading } = useContext(AuthContext)
+    const { loginUser, loading } = useContext(AuthContext)
     const [temail, setTEmail] = useState('')
     const [token] = useToken(temail)
     const [error, setError] = useState('')
@@ -23,17 +22,12 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         setTEmail(email)
+        form.reset()
 
         loginUser(email, password)
             .then(result => {
-                const user = result.user;
-
                 console.log(email)
-
-                form.reset()
-
                 setError('')
-
                 navigate(from, { replace: true });
             })
             .catch(error => {
